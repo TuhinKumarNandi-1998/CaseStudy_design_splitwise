@@ -1,8 +1,8 @@
 package com.example.casestudy_design_splitwise.Controllers;
 
-import com.example.casestudy_design_splitwise.dtos.RegisterUserRequestDTO;
-import com.example.casestudy_design_splitwise.dtos.RegisterUserResponseDTO;
-import com.example.casestudy_design_splitwise.dtos.ResponseStatus;
+import com.example.casestudy_design_splitwise.Exceptions.SamePreviousPasswordNotAllowed;
+import com.example.casestudy_design_splitwise.Exceptions.UserNotFoundException;
+import com.example.casestudy_design_splitwise.dtos.*;
 import com.example.casestudy_design_splitwise.Models.User;
 import com.example.casestudy_design_splitwise.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,21 @@ public class UserController {
         return registerUserResponseDTO;
     }
 
-    public void updateUser() {
+    public UpdateUserResponseDTO updateUser(UpdateUserRequestDTO updateUserRequestDTO) {
+        UpdateUserResponseDTO updateUserResponseDTO = new UpdateUserResponseDTO();
+        try {
+            User user = userService.updateUser(updateUserRequestDTO.getUserId(),
+                    updateUserRequestDTO.getPassword());
 
+            updateUserResponseDTO.setUserName(user.getName());
+            updateUserResponseDTO.setUserId(user.getId());
+        }
+        catch (UserNotFoundException e) {
+            System.out.println("User with ID "+updateUserRequestDTO.getUserId()+ " not found");
+        }
+        catch (SamePreviousPasswordNotAllowed e) {
+            System.out.println("Same password as previous not allowed.");
+        }
+        return updateUserResponseDTO;
     }
 }

@@ -40,7 +40,7 @@ public class CaseStudyDesignSplitWiseApplication implements CommandLineRunner {
         registerCommand.addCommand(registerUserCommand);
         registerCommand.addCommand(updateProfileCommand);
 
-        String input = "Register Tuhin 8750664308 namisswwaann";
+        String input = "4 UpdateProfile koel@2008";
         registerCommand.execute(input);
     }
 }
