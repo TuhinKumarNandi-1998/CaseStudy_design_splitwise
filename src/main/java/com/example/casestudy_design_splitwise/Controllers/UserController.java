@@ -4,7 +4,7 @@ import com.example.casestudy_design_splitwise.Exceptions.SamePreviousPasswordNot
 import com.example.casestudy_design_splitwise.Exceptions.UserNotFoundException;
 import com.example.casestudy_design_splitwise.dtos.*;
 import com.example.casestudy_design_splitwise.Models.User;
-import com.example.casestudy_design_splitwise.Services.UserService;
+import com.example.casestudy_design_splitwise.Services.UserService.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

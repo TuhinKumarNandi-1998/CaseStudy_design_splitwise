@@ -1,4 +1,4 @@
-package com.example.casestudy_design_splitwise.Services;
+package com.example.casestudy_design_splitwise.Services.UserService;
 
 import com.example.casestudy_design_splitwise.Exceptions.SamePreviousPasswordNotAllowed;
 import com.example.casestudy_design_splitwise.Exceptions.UserNotFoundException;
